@@ -11,9 +11,16 @@ const BackgroundSystem: React.FC = () => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-70"
+          controls={false}
+          preload="auto"
         >
+          {/* Try multiple video paths for better compatibility */}
+          <source src="/sam%20vedio/Crazy_Photo_Animation_for_Website.mp4" type="video/mp4" />
           <source src="/sam vedio/Crazy_Photo_Animation_for_Website.mp4" type="video/mp4" />
-          {/* Fallback message if video doesn't load */}
+          <source src="./sam%20vedio/Crazy_Photo_Animation_for_Website.mp4" type="video/mp4" />
+          <source src="./sam vedio/Crazy_Photo_Animation_for_Website.mp4" type="video/mp4" />
+          
+          {/* Fallback message */}
           Your browser does not support the video tag.
         </video>
         
