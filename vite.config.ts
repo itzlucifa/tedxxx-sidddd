@@ -18,6 +18,20 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
+      },
+      build: {
+        assetsDir: 'assets',
+        rollupOptions: {
+          output: {
+            assetFileNames: (assetInfo) => {
+              if (assetInfo.name && assetInfo.name.endsWith('.mp4')) {
+                return 'videos/[name]-[hash][extname]';
+              }
+              return 'assets/[name]-[hash][extname]';
+            }
+          }
+        }
+      },
+      publicDir: 'public'
     };
 });
